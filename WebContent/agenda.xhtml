@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<style>
+.mapa { 
+    font-size: 18px; 
+    border-radius: 60px; 
+    border: 1px solid #000; 
+    background-color: #ff0006; 
+    padding: 6px; 
+    color: #FFF; 
+    cursor: pointer;
+}
+
+.mapa:hover { 
+    font-size: 18px; 
+    border-radius: 60px; 
+    border: 1px solid #000; 
+    background-color: #FFF; 
+    padding: 6px; 
+    color: #ff0006;
+}
+</style>
+</h:head>
+<h:body>
+	<div id="menu-2" class="content agenda">
+		<div class="page-header">
+			<h2 class="page-title">Agenda</h2>
+		</div>
+		<!-- /.page-header -->
+		<div class="content-inner">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="widget-title">Próximos Eventos</h3>
+				</div>
+				<!-- /.col-md-12 -->
+			</div>
+			<!-- /.row -->
+			<div class="row services">
+
+				<h:dataTable var="Evento" value="#{EventoMB.proximosEventos}">
+					<h:column>
+						<span class="h3"> <h:outputText
+								value="#{Evento.mesExtenso}">
+							</h:outputText>
+						</span>
+
+						<span class="h3"> <h:outputText
+								value=" - Dia #{Evento.dia}"></h:outputText>
+						</span>
+
+						<span class="h3"> <h:outputText value=" - #{Evento.hora}:"></h:outputText>
+							<h:outputText value="#{Evento.minuto}0"></h:outputText>
+						</span>
+
+						<br />
+
+						<span class="h3"> <h:outputText value="#{Evento.nome}"></h:outputText>
+						</span>
+
+						<br />
+
+						<h:outputText value=" - #{Evento.endereco}"></h:outputText>
+
+
+
+						<h:outputText value=" - #{Evento.local}"></h:outputText>
+						<br />
+						<h:outputText value=" - #{Evento.obs}"></h:outputText>
+						<span class="fa fa-map-marker mapa -#{Evento.id}" id="https://www.google.com.br/maps/place/#{Evento.endereco}"></span>
+						<br />
+						<br />
+						
+					</h:column>
+				</h:dataTable>
+
+
+			</div>
+			<!-- /.row -->
+		</div>
+		<!-- /.content-inner -->
+	</div>
+	<!-- /.agenda -->
+<script type="text/javascript">
+/* Abrir mapa na agenda */
+$(".mapa").click(function() {
+    var idMapa = $(this).attr('class');
+    idMapa = idMapa.split('-');
+    idMapa = idMapa[3];
+    var linkMapa = $(this).attr('id');
+    window.open(linkMapa,'janela', 'width=700, height=400, top=99, left=99, scrollbars=no, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=yes, fullscreen=yes'); 
+});
+
+</script>
+</h:body>
+
+</html>
