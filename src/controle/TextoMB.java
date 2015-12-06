@@ -17,6 +17,7 @@ public class TextoMB {
 	private TextoDAO dao;
 	private String release;
 	private String agradecimento;
+	private String conteudo;
 	private List<Texto> textos;
 	
 	public TextoMB() {
@@ -43,11 +44,18 @@ public class TextoMB {
 
 	public void setTexto(Texto texto) {
 		this.texto = texto;
-	}
-	
+	}	
 
 	public String getRelease() {
 		return release;
+	}
+
+	public String getConteudo() {
+		return conteudo;
+	}
+
+	public void setConteudo(String conteudo) {
+		this.conteudo = conteudo;
 	}
 
 	public void setRelease() {
@@ -75,7 +83,7 @@ public class TextoMB {
 	}
 
 	public void setTextos(List<Texto> textos) {
-		if (textos.isEmpty() || textos == null) {
+		if (textos.isEmpty()) {
 			Texto t = new Texto("<p>A Banda Orbita Cristã foi gerada na cabeça e no coração do Vocalista e Compositor"
 		            + " Vinícius Gonçalves através de uma oração, na qual o músico pedia a Deus uma banda de"
 					+ " rock cristã, quando Deus lhe entregou o nome (<b>Órbita Cristã</b>)... O músico que já havia"
@@ -124,8 +132,14 @@ public class TextoMB {
 		this.textos = textos;
 	}
 	
-	public String salvar(){
-		dao.inserir(texto);
+	public String atualizar(){
+		dao.atualizar(texto);
+		return null;
+	}
+	
+	public String inserir(){
+		Texto t = new Texto(this.getConteudo());
+		dao.inserir(t);
 		return null;
 	}
 

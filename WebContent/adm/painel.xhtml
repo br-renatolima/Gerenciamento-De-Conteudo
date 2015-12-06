@@ -29,6 +29,11 @@
                 	var linkMapa = 'https://www.google.com.br/maps/place/' + endereco + '';
                     var janela = window.open(linkMapa, 'janela', 'width=700, height=400, top=99, left=99, scrollbars=no, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=yes, fullscreen=yes');
                 });
+            
+                $('.mobile-menu-icon').click(function(){
+            		$('.left-nav').slideToggle();				
+            	});
+                
             }
             
             function start() {
@@ -182,10 +187,21 @@
 					<ui:repeat var="Texto" value="#{TextoMB.textos}">
 						<h:form>
 							<h:inputTextarea cols="40" rows="10" value="#{Texto.texto}" /> &nbsp; &nbsp; 
-                            <h:commandButton value="Alterar" action="#{TextoMB.salvar}" />
+                            <h:commandButton value="Alterar" action="#{TextoMB.atualizar}" />
 						</h:form>
 						<br />
 					</ui:repeat>
+					
+					<hr />
+					
+					<h:form>
+						<p:outputLabel value="Novo:" for="texto" />
+						<br />
+						<p:inputTextarea cols="40" rows="10" value="#{TextoMB.conteudo}" id="texto" required="true" requiredMessage="Conteúdo do texto é obrigatório!" />
+						<br />
+						<br />
+						<h:commandButton value="Salvar" action="#{TextoMB.inserir}" />
+					</h:form>
 				</p:dialog>
 				
 				
@@ -220,23 +236,16 @@
 			</div>
             </div>
 
-    <!-- Left column -->
-    <div class="templatemo-flex-row">
-      <div class="templatemo-sidebar">
-        <header class="templatemo-site-header">
+    <div class="flex-row">
+      <div class="sidebar">
+        <header class="site-header">
           <h1> <i class="fa fa-gear" /> Painel Administrativo</h1>
         </header>
-        <!-- Search box -->
-<!--         <form class="templatemo-search-form" role="search"> -->
-<!--           <div class="input-group"> -->
-<!--               <button type="submit" class="fa fa-search"></button> -->
-<!--               <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term" />            -->
-<!--           </div> -->
-<!--         </form> -->
+
         <div class="mobile-menu-icon">
             <i class="fa fa-bars"></i>
         </div>
-        <nav class="templatemo-left-nav">          
+        <nav class="left-nav">          
           <ul>
             <li><a onclick="PF('modalAdministrador').show();" class="show-1" href="#"><i class="fa fa-users"></i> Administrador</a></li>
 			<li><a onclick="PF('modalMusica').show();" class="show-2" href="#"><i class="fa fa-music"></i>M&uacute;sica</a></li>
@@ -251,7 +260,7 @@
       </div>
 
       
-      <div class="templatemo-content col-1 light-gray-bg">
+        <div class="content col-1 light-gray-bg">
           <footer class="text-right">
             <p>Copyright &copy; 2015 Gerenciamento de Conteúdo - 
             Design por <a href="#">Renato Lima - Rafael Barros</a></p>
