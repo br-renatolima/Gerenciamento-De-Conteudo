@@ -121,7 +121,15 @@ public class EventoMB {
 			evento.setMes(calendario.get(Calendar.MONTH));
 			evento.setDia(calendario.get(Calendar.DAY_OF_MONTH));
 			evento.setHora(calendario.get(Calendar.HOUR_OF_DAY));
-			evento.setMinuto(calendario.get(Calendar.MINUTE));
+			if(String.valueOf(calendario.get(Calendar.MINUTE)).length() < 2){
+				evento.setMinuto( String.valueOf(calendario.get(Calendar.MINUTE) ) + "0");
+			}else{
+				evento.setMinuto( String.valueOf(calendario.get(Calendar.MINUTE) ));
+			}
+			
+
+			evento.setMes(evento.getMes() + 1);
+			
 			
 			switch (evento.getMes()) {
 				case 1: evento.setMesExtenso("Janeiro"); break;
@@ -138,6 +146,10 @@ public class EventoMB {
 				case 12: evento.setMesExtenso("Dezembro"); break;
 			}
 			this.eventos.add(evento);
+			
+			if(evento.getSituacao().equals("AT")){
+				this.eventosAtivos.add(evento);
+			}
 		}
 	}
 	

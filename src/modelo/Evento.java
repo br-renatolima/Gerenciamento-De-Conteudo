@@ -30,7 +30,7 @@ public class Evento {
 	@Transient
 	private int hora;
 	@Transient
-	private int minuto;
+	private String minuto;
 	@Transient
 	private String mesExtenso;
 	
@@ -155,12 +155,12 @@ public class Evento {
 	}
 
 
-	public int getMinuto() {
+	public String getMinuto() {
 		return minuto;
 	}
 
 
-	public void setMinuto(int minuto) {
+	public void setMinuto(String minuto) {
 		this.minuto = minuto;
 	}
 
