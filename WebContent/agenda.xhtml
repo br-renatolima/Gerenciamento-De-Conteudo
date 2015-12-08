@@ -70,8 +70,10 @@
 
 						<h:outputText value=" - #{Evento.local}"></h:outputText>
 						<br />
-						<h:outputText value=" - #{Evento.obs}"></h:outputText>
-						<span class="fa fa-map-marker mapa -#{Evento.id}" id="https://www.google.com.br/maps/place/#{Evento.endereco}"></span>
+						<h:outputText value=" - #{Evento.obs}"> </h:outputText>
+						<span class="fa fa-map-marker mapa -#{Evento.id}" id="https://www.google.com.br/maps/place/#{Evento.endereco}">  </span>
+						<a href="http://twitter.com/share" class="twitter-share-button" data-url="www.orbitacrista.com.br" data-text="#{Evento.nome} - #{Evento.dia}/#{Evento.mes}/#{Evento.ano} - Veja mais em www.orbitacrista.com.br" data-count="horizontal" data-via="orbitacrista" data-lang="pt">Tweetar</a>
+						<section class="g-plus" data-action="share" data-href="www.orbitacrista.com.br" data-annotation="bubble"></section>
 						<br />
 						<br />
 						
