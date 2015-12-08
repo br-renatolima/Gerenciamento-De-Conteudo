@@ -59,6 +59,29 @@
 		//]]>
 
 	</script>
+	
+	<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+ 
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+ 
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+{lang: 'pt-BR'} 
+</script> 
+
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
 
 <style>
@@ -91,8 +114,8 @@
     margin: 0 auto;
     overflow:hidden;
     width:650px;
-    height:720px; /* +30 = space for buttons */
-    text-align:center; /* to center the buttons */
+    height: 1220px; 
+    text-align:center;
 }
 
 #comentarios{
@@ -102,7 +125,7 @@
     position:absolute;
     left:0;
     width: 650px;
-    text-align:left; /* to reset text inside slides */
+    text-align:left;
 }
 #slider > div {
     position:relative;
@@ -147,30 +170,6 @@
     width:60px;
 }
 
-.stars {
-  width: 150px;
-  height: 20px;
-  margin: 0 auto;
-}
-.stars li {
-  background: url('./img/star_groups.png') no-repeat;
-  display: block;
-  height: 20px;
-  width: 20px;
-  cursor: pointer;
-  float: left;
-}
-
-.stars li.active {
-  background-position: left -45px;
-}
-
-#sql {
-  font: bold 20px Arial;
-  color: #f00;
-  text-align: center;
-  clear: both;
-}
 
 </style>
 
@@ -208,31 +207,41 @@
 							<ui:repeat value="#{VideoMB.videos}" var="Video">
 								<div>
 									<iframe width="650" height="420" src="//www.youtube.com/embed/#{Video.codigo}" frameborder="0" allowfullscreen="true" />
-									<section class="box" align="left">
-									</section>
+									<section class="box" align="left"></section>
 
 									<section id="comentarios"> 
 									<h:form>
 										<p:rating value="#{VideoMB.voto}">
 										<f:param name="id_Video" value="#{Video.id}"/>
-											<p:ajax event="rate" listener="#{VideoMB.onrate}" update="messages" />
-											<p:ajax event="cancel" listener="#{VideoMB.oncancel}" update="messages" />
-										</p:rating> 
+											<p:ajax event="rate" listener="#{VideoMB.onrate}" />
+											<p:ajax event="cancel" listener="#{VideoMB.oncancel}" />
+										</p:rating>
 										</h:form>
+										 
+									
 									<section class="fb-comments" data-href="https://www.youtube.com/watch?v=#{Video.codigo}" data-width="650" data-numposts="10" data-colorscheme="dark"></section>
 									</section>
+									<br /> <br />
+									<a href="http://twitter.com/share" class="twitter-share-button" data-url="#{Video.codigo}" data-text="https://www.youtube.com/watch?v=#{Video.codigo} - Veja mais em www.orbitacrista.com.br" data-count="horizontal" data-via="orbitacrista" data-lang="pt">Tweetar</a>
+									<section class="g-plus" data-action="share" data-href="https://www.youtube.com/watch?v=#{Video.codigo}" data-annotation="bubble"></section>
+									
 
 								</div>
 							</ui:repeat>
 							
-<p:growl id="messages" showDetail="true" />
 						</div>
+						 <p:growl id="messages" showDetail="true" />
+						 
 						<span id="prev" alt="Anterior">&#9664;</span>
                         <span id="next" alt="Próximo">&#9654;</span>
 					</div>
 
 					<address>Clique nas setas para ver mais vídeos</address>
+					
 					<br /><br /><br />
+					<a class="twitter-follow-button" href="https://twitter.com/orbitacrista" data-size="large">Siga @OrbitaCrista</a>
+					<br /><br /><br />
+					
 				</div>
 				<p></p>
 
