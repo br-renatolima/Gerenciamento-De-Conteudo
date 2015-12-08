@@ -34,27 +34,6 @@
 						$sli.stop().animate({ left : -C * W }, 800);
 						});
 				});
-					// TO EXPLAIN THE MADNESS ABOVE
-
-					// $('#prev, #next').click(function(){
-
-					// We need to animate the #slider
-					// some -left position.
-					// We have a "C" counter set to the '0' (first slide),
-					// on click NEXT, PREV, we incr,decrease the C counter
-					// and simply move #slider by C * the slide width!
-
-					// DETECT PREV NEXT AND +,- OUR COUNTER
-					// if(this.id=='next'){ C++; }else{ C--; }
-
-					// Prevent C GO TO -1 (prev button)
-					// if(C<0){ C = N-1; }
-					// Prevent C exceed N. of slides (next button)
-					//  else{ C = C%N; }  // (% = Modulo operator)
-
-					//  $sli.stop().animate({left: -C*W },800);
-
-					//  });     
 				
 		//]]>
 
