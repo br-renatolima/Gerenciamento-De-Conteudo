@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
     <!-- Particular -->
     <link rel="stylesheet" type="text/css" media="all" href="css/adm-style.css" />
@@ -50,6 +50,50 @@
 </h:head>
         
 <h:body>
+                
+                
+      <div class="flex-row">
+        <div class="sidebar">
+        <header class="site-header">
+        	<h1> <i class="fa fa-gear" /> Painel Administrativo</h1>
+          	<hr />
+         	<h:form>
+            	<h:commandButton action="#{UsuarioMB.doLogout}" styleClass="btn btn-warning" value="LOGOUT">
+                  <f:param name="usuario" value="#{UsuarioMB.usuario}" />
+                  <f:param name="senha" value="#{UsuarioMB.senha}" />
+              </h:commandButton>
+          	</h:form>
+        </header>
+        <div class="mobile-menu-icon">
+            <i class="fa fa-bars"></i>
+        </div>
+        <nav class="left-nav">          
+        	<ul>
+            	<li><a onclick="PF('modalAdministrador').show();" class="show-1" href="#"><i class="fa fa-users"></i> Administrador</a></li>
+				<li><a onclick="PF('modalMusica').show();" class="show-2" href="#"><i class="fa fa-music"></i>M&uacute;sica</a></li>
+				<li><a onclick="PF('modalAlbum').show();" class="show-3" href="#"><i class="fa fa-book"></i> Album</a></li>
+				<li><a onclick="PF('modalFoto').show();" class="show-4" href="#"><i class="fa fa-photo"></i> Foto</a></li>
+				<li><a onclick="PF('modalVideo').show();" class="show-5" href="#"><i class="fa fa-youtube-play"></i>V&iacute;deo</a></li>
+				<li><a onclick="PF('modalEvento').show();" class="show-6" href="#"><i class="fa fa-flag-checkered"></i>Evento</a></li>
+				<li><a onclick="PF('modalTexto').show();" class="show-7" href="#"><i class="fa fa-file-text-o"></i>Texto</a></li>
+				<li><a onclick="PF('modalPost').show();" class="show-8" href="#"><i class="fa fa-newspaper-o"></i>Posts</a></li>
+          	</ul>  
+        </nav>
+      </div>
+      
+      <div class="content col-1 light-gray-bg">
+          <footer class="text-right">
+            <p>Copyright &copy; 2015 Gerenciamento de Conteúdo - 
+            Design por <a href="#">Renato Lima - Rafael Barros</a></p>
+          </footer>
+        </div>
+      </div>          
+                
+                
+                
+                
+                
+                
                     
     <p:dialog header="Inserir Administrador" widgetVar="modalAdministrador" modal="true">
 		<h:form>
@@ -210,43 +254,8 @@
 		&nbsp;&nbsp;&nbsp;&nbsp;
 		<p:button styleClass="btn btn-info" href="post/lista.jsf" value="Listar" icon="fa-list"/>
 	</p:dialog>
-        
-    <div class="flex-row">
-        <div class="sidebar">
-        <header class="site-header">
-        	<h1> <i class="fa fa-gear" /> Painel Administrativo</h1>
-          	<hr />
-         	<h:form>
-            	<h:commandButton action="#{UsuarioMB.doLogout}" styleClass="btn btn-warning" value="LOGOUT">
-                  <f:param name="usuario" value="#{UsuarioMB.usuario}" />
-                  <f:param name="senha" value="#{UsuarioMB.senha}" />
-              </h:commandButton>
-          	</h:form>
-        </header>
-        <div class="mobile-menu-icon">
-            <i class="fa fa-bars"></i>
-        </div>
-        <nav class="left-nav">          
-        	<ul>
-            	<li><a onclick="PF('modalAdministrador').show();" class="show-1" href="#"><i class="fa fa-users"></i> Administrador</a></li>
-				<li><a onclick="PF('modalMusica').show();" class="show-2" href="#"><i class="fa fa-music"></i>M&uacute;sica</a></li>
-				<li><a onclick="PF('modalAlbum').show();" class="show-3" href="#"><i class="fa fa-book"></i> Album</a></li>
-				<li><a onclick="PF('modalFoto').show();" class="show-4" href="#"><i class="fa fa-photo"></i> Foto</a></li>
-				<li><a onclick="PF('modalVideo').show();" class="show-5" href="#"><i class="fa fa-youtube-play"></i>V&iacute;deo</a></li>
-				<li><a onclick="PF('modalEvento').show();" class="show-6" href="#"><i class="fa fa-flag-checkered"></i>Evento</a></li>
-				<li><a onclick="PF('modalTexto').show();" class="show-7" href="#"><i class="fa fa-file-text-o"></i>Texto</a></li>
-				<li><a onclick="PF('modalPost').show();" class="show-8" href="#"><i class="fa fa-newspaper-o"></i>Posts</a></li>
-          	</ul>  
-        </nav>
-      </div>
-      
-      <div class="content col-1 light-gray-bg">
-          <footer class="text-right">
-            <p>Copyright &copy; 2015 Gerenciamento de Conteúdo - 
-            Design por <a href="#">Renato Lima - Rafael Barros</a></p>
-          </footer>         
-        </div>
-      </div>
+	
+	
         
 			
 
