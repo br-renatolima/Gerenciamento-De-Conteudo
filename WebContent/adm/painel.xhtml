@@ -221,10 +221,15 @@
 		<ui:repeat var="Texto" value="#{TextoMB.textos}">
 			<h:form>
 				<h:inputTextarea cols="40" rows="10" value="#{Texto.texto}" /> &nbsp; &nbsp; 
-                <h:commandButton value="Alterar" action="#{TextoMB.salvar}" />
+                <h:commandButton value="Alterar" action="#{TextoMB.atualizar}" />
 			</h:form>
 			<br />
 		</ui:repeat>
+		<h:form>
+			<h:inputTextarea cols="40" rows="10" value="#{TextoMB}" /> &nbsp; &nbsp; 
+            <h:commandButton value="Alterar" action="#{TextoMB.inserir}" />
+		</h:form>
+		<br />
 	</p:dialog>
 				
 	<p:dialog header="Moderar Posts" widgetVar="modalPost" modal="true">
